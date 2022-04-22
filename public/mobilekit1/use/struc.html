@@ -1,0 +1,357 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>Mobilekit Mobile UI Kit</title>
+    <meta name="description" content="Mobilekit HTML Mobile UI Kit">
+    <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/icon/192x192.png">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="__manifest.json">
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+			/*body {
+			    background-color: #ffe8d2;
+			    font-family: 'Montserrat', sans-serif
+			}*/
+
+			.card {
+			    border: none
+			}
+
+			.logo {
+			    background-color: #eeeeeea8
+			}
+
+			.totals tr td {
+			    font-size: 13px
+			}
+
+			.footer {
+			    background-color: #eeeeeea8
+			}
+
+			.footer span {
+			    font-size: 12px
+			}
+
+			.product-qty span {
+			    font-size: 12px;
+			    color: #dedbdb
+			}
+    </style>
+</head>
+
+<body>
+
+    <!-- loader -->
+    <div id="loader">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+    <!-- * loader -->
+
+    <!-- App Header -->
+    <div class="appHeader bg-primary text-light">
+        <div class="left">
+            <a href="javascript:;" class="headerButton goBack">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="pageTitle">Blank Page</div>
+        <div class="right"></div>
+    </div>
+    <!-- * App Header -->
+
+    <!-- App Capsule -->
+    <div id="appCapsule">
+
+        <div class="section full mt-2">
+			<div class="container mt-5 mb-5">
+			    <div class="row d-flex justify-content-center">
+			        <div class="col-md-8">
+			            <div class="card">
+			                <div class="text-left logo p-2 px-5"> <img src="https://i.imgur.com/2zDU056.png" width="50"> </div>
+			                <div class="invoice p-5">
+			                    <h5>Your order Confirmed!</h5> <span class="font-weight-bold d-block mt-4">Hello, Chris</span> <span>You order has been confirmed and will be shipped in next two days!</span>
+			                    <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
+			                        <table class="table table-borderless">
+			                            <tbody>
+			                                <tr>
+			                                    <td>
+			                                        <div class="py-2"> <span class="d-block text-muted">Order Date</span> <span>12 Jan,2018</span> </div>
+			                                    </td>
+			                                    <td>
+			                                        <div class="py-2"> <span class="d-block text-muted">Order No</span> <span>MT12332345</span> </div>
+			                                    </td>
+			                                    <td>
+			                                        <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span> </div>
+			                                    </td>
+			                                    <td>
+			                                        <div class="py-2"> <span class="d-block text-muted">Shiping Address</span> <span>414 Advert Avenue, NY,USA</span> </div>
+			                                    </td>
+			                                </tr>
+			                            </tbody>
+			                        </table>
+			                    </div>
+			                    <div class="product border-bottom table-responsive">
+			                        <table class="table table-borderless">
+			                            <tbody>
+			                                <tr>
+			                                    <td width="20%"> <img src="https://i.imgur.com/u11K1qd.jpg" width="90"> </td>
+			                                    <td width="60%"> <span class="font-weight-bold">Men's Sports cap</span>
+			                                        <div class="product-qty"> <span class="d-block">Quantity:1</span> <span>Color:Dark</span> </div>
+			                                    </td>
+			                                    <td width="20%">
+			                                        <div class="text-right"> <span class="font-weight-bold">$67.50</span> </div>
+			                                    </td>
+			                                </tr>
+			                                <tr>
+			                                    <td width="20%"> <img src="https://i.imgur.com/SmBOua9.jpg" width="70"> </td>
+			                                    <td width="60%"> <span class="font-weight-bold">Men's Collar T-shirt</span>
+			                                        <div class="product-qty"> <span class="d-block">Quantity:1</span> <span>Color:Orange</span> </div>
+			                                    </td>
+			                                    <td width="20%">
+			                                        <div class="text-right"> <span class="font-weight-bold">$77.50</span> </div>
+			                                    </td>
+			                                </tr>
+			                            </tbody>
+			                        </table>
+			                    </div>
+			                    <div class="row d-flex justify-content-end">
+			                        <div class="col-md-5">
+			                            <table class="table table-borderless">
+			                                <tbody class="totals">
+			                                    <tr>
+			                                        <td>
+			                                            <div class="text-left"> <span class="text-muted">Subtotal</span> </div>
+			                                        </td>
+			                                        <td>
+			                                            <div class="text-right"> <span>$168.50</span> </div>
+			                                        </td>
+			                                    </tr>
+			                                    <tr>
+			                                        <td>
+			                                            <div class="text-left"> <span class="text-muted">Shipping Fee</span> </div>
+			                                        </td>
+			                                        <td>
+			                                            <div class="text-right"> <span>$22</span> </div>
+			                                        </td>
+			                                    </tr>
+			                                    <tr>
+			                                        <td>
+			                                            <div class="text-left"> <span class="text-muted">Tax Fee</span> </div>
+			                                        </td>
+			                                        <td>
+			                                            <div class="text-right"> <span>$7.65</span> </div>
+			                                        </td>
+			                                    </tr>
+			                                    <tr>
+			                                        <td>
+			                                            <div class="text-left"> <span class="text-muted">Discount</span> </div>
+			                                        </td>
+			                                        <td>
+			                                            <div class="text-right"> <span class="text-success">$168.50</span> </div>
+			                                        </td>
+			                                    </tr>
+			                                    <tr class="border-top border-bottom">
+			                                        <td>
+			                                            <div class="text-left"> <span class="font-weight-bold">Subtotal</span> </div>
+			                                        </td>
+			                                        <td>
+			                                            <div class="text-right"> <span class="font-weight-bold">$238.50</span> </div>
+			                                        </td>
+			                                    </tr>
+			                                </tbody>
+			                            </table>
+			                        </div>
+			                    </div>
+			                    <div class="row">
+			                    	<div class="col-md-12">
+			                    		<p>We will be sending shipping confirmation email when the item shipped successfully!</p>
+					                    <p class="font-weight-bold mb-0">Thanks for shopping with us!</p> <span>Nike Team</span>
+			                    	</div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+        </div>
+
+
+
+    </div>
+    <!-- * App Capsule -->
+
+    <!-- App Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="./dasboard.html" class="item">
+            <div class="col">
+                <ion-icon name="home-outline"></ion-icon>
+            </div>
+        </a>
+        <a href="./chart.html" class="item">
+            <div class="col">
+                <ion-icon name="basket-outline"></ion-icon>
+                <span class="badge badge-danger">5</span>
+            </div>
+        </a>
+        <a href="./list.html" class="item">
+            <div class="col">
+            <ion-icon name="albums-outline"></ion-icon>
+                <span class="badge badge-danger">5</span>
+            </div>
+        </a>
+        <a href="./listtransaksi.html" class="item">
+            <div class="col">
+                <ion-icon name="pricetags-outline"></ion-icon>
+            </div>
+        </a>
+        <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
+            <div class="col">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </a>
+    </div>
+    <!-- * App Bottom Menu -->
+
+    <!-- App Sidebar -->
+    <div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+
+                    <!-- profile box -->
+                    <div class="profileBox">
+                        <div class="image-wrapper">
+                            <img src="../assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged rounded">
+                        </div>
+                        <div class="in">
+                            <strong>Julian Gruber</strong>
+                            <div class="text-muted">
+                                <ion-icon name="location"></ion-icon>
+                                California
+                            </div>
+                        </div>
+                        <a href="javascript:;" class="close-sidebar-button" data-dismiss="modal">
+                            <ion-icon name="close"></ion-icon>
+                        </a>
+                    </div>
+                    <!-- * profile box -->
+
+                    <ul class="listview flush transparent no-line image-listview mt-2">
+                        <li>
+                            <div class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="moon-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    <div>Dark Mode</div>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input dark-mode-switch"
+                                            id="darkmodesidebar">
+                                        <label class="custom-control-label" for="darkmodesidebar"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="listview-title mt-2 mb-1">
+                        <span>Kasir lain</span>
+                    </div>
+                    <ul class="listview image-listview flush transparent no-line">
+                        <li>
+                            <a href="./dasboard.html" class="item">
+                                <img src="../assets/img/sample/avatar/avatar7.jpg" alt="image" class="image">
+                                <div class="in">
+                                    <div>Sophie Asveld</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./dasboard.html" class="item">
+                                <img src="../assets/img/sample/avatar/avatar3.jpg" alt="image" class="image">
+                                <div class="in">
+                                    <div>Sebastian Bennett</div>
+                                    <span class="badge badge-danger">6</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./dasboard.html" class="item">
+                                <img src="../assets/img/sample/avatar/avatar10.jpg" alt="image" class="image">
+                                <div class="in">
+                                    <div>Beth Murphy</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./dasboard.html" class="item">
+                                <img src="../assets/img/sample/avatar/avatar2.jpg" alt="image" class="image">
+                                <div class="in">
+                                    <div>Amelia Cabal</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./dasboard.html" class="item">
+                                <img src="../assets/img/sample/avatar/avatar5.jpg" alt="image" class="image">
+                                <div class="in">
+                                    <div>Henry Doe</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <!-- sidebar buttons -->
+                <div class="sidebar-buttons">
+                    <a href="javascript:;" class="button">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </a>
+                    <a href="javascript:;" class="button">
+                        <ion-icon name="archive-outline"></ion-icon>
+                    </a>
+                    <a href="javascript:;" class="button">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </a>
+                    <a href="javascript:;" class="button">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </a>
+                </div>
+                <!-- * sidebar buttons -->
+            </div>
+        </div>
+    </div>
+    <!-- * App Sidebar -->
+
+    <!-- ///////////// Js Files ////////////////////  -->
+    <!-- Jquery -->
+    <script src="../assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="../assets/js/lib/popper.min.js"></script>
+    <script src="../assets/js/lib/bootstrap.min.js"></script>
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+    <!-- Owl Carousel -->
+    <script src="../assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- jQuery Circle Progress -->
+    <script src="../assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
+    <!-- Base Js File -->
+    <script src="../assets/js/base.js"></script>
+
+
+</body>
+
+</html>
