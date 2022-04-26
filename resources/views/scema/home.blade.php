@@ -17,12 +17,11 @@
                 <div class="card">
                     <img src="{!! url('storage/'.$element->image) !!}" class="card-img-top" alt="image">
                     <div class="card-body">
-                        <h6 class="card-subtitle">{!! $element->slug !!}</h6>
                         <h5 class="card-title">{!! $element->title !!}</h5>
                         <p class="card-text">
                             {!! $element->excerpt !!}
                         </p>
-                        <a href="app-pages.html" class="btn btn-primary">
+                        <a href="{!! $element->slug !!}" class="btn btn-primary">
                             <ion-icon name="layers-outline"></ion-icon>
                             Preview
                         </a>
