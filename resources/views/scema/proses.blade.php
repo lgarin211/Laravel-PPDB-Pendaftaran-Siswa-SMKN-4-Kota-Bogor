@@ -149,7 +149,7 @@
 			        			@empty ($datapin)
 			        			@else   
 					       			@foreach ($datapin as $key=>$element)
-					       			<p class="col-sm-6">{!! strtoupper(str_replace('_', ' ', $key)) !!} :
+					       			<p class="col-sm-6 text-left">{!! strtoupper(str_replace('_', ' ', $key)) !!} :
 					       			 	<strong> {!! $element !!} </strong>
 					       			</p>
 					           		@endforeach
