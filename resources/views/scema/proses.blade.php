@@ -1,3 +1,8 @@
+@if (empty(Auth::user()))
+    <script type="text/javascript">
+           window.location.replace('{{ url('/admin') }}')
+    </script>
+@else 
 	@extends('Master/master')		
 	@section('content')
 		 <div class="header-large-title">
@@ -22,6 +27,17 @@
 	                </a>
 	            </li>
             @else
+                <div class="col-md-12 pt-2">
+            		<ul>
+            			@php
+            				$datapin=$table->first();
+            				unset($datapin->id,$datapin->created_at,$datapin->updated_at);
+            			@endphp
+            			@foreach ($datapin as $key=>$element)
+            			<li>{!! strtoupper(str_replace('_', ' ', $key)) !!} : {!! $element !!}</li>
+            			@endforeach
+            		</ul>
+            	</div>
 	            <li>
 	               <a href="{{  url('/admin/dataumum/'.Auth::user()->id.'/edit') }}" class="item">
 	                    <div class="icon-box bg-primary">
@@ -49,6 +65,17 @@
 	                </a>
 	            </li>
             @else
+	            <div class="col-md-12 pt-2">
+	           		<ul>
+	           			@php
+	           				$datapin=$table->first();
+	           				unset($datapin->id,$datapin->created_at,$datapin->updated_at,$datapin->id_user,$datapin->id_tipe_pendaftara);
+	           			@endphp
+	           			@foreach ($datapin as $key=>$element)
+	           			<li>{!! strtoupper(str_replace('_', ' ', $key)) !!} : {!! $element !!}</li>
+	           			@endforeach
+	           		</ul>
+           		</div>
 	            <li>
 	                <a href="{{  url('admin/data-jalur-pendaftaran/'.Auth::user()->id.'/edit') }}" class="item">
 	                    <div class="icon-box bg-primary">
@@ -76,6 +103,15 @@
 	                </a>
 	            </li>
             @else
+           		<ul>
+	           		@php
+	           			$datapin=$table2->first();
+	           			unset($datapin->id,$datapin->created_at,$datapin->updated_at,$datapin->id_user,$datapin->id_tipe_pendaftara);
+        			@endphp
+	       			@foreach ($datapin as $key=>$element)
+	       			<li>{!! strtoupper(str_replace('_', ' ', $key)) !!} : {!! $element !!}</li>
+	           		@endforeach
+	           	</ul>
 	            <li>
 	                <a href="{{  url('admin/jalur-'.strtolower($table->first()->tipe_pendaftaran).'/'.Auth::user()->id.'/edit') }}" class="item">
 	                    <div class="icon-box bg-primary">
@@ -103,6 +139,15 @@
 	                </a>
 	            </li>
             @else
+		  		<ul>
+	           		@php
+	           			$datapin=$table2->first();
+	           			unset($datapin->id,$datapin->created_at,$datapin->updated_at,$datapin->id_user,$datapin->id_tipe_pendaftara);
+        			@endphp
+	       			@foreach ($datapin as $key=>$element)
+	       			<li>{!! strtoupper(str_replace('_', ' ', $key)) !!} : {!! $element !!}</li>
+	           		@endforeach
+	           	</ul>
 	            <li>
 	                <a href="{{  url('admin/'.strtolower($table->first()->Kejuruan).'/'.Auth::user()->id.'/edit') }}" class="item">
 	                    <div class="icon-box bg-primary">
@@ -117,3 +162,4 @@
         @endif
 		</ul>
 	@endsection
+@endif

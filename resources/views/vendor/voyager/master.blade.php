@@ -1,6 +1,6 @@
 @if (Auth::user()->role_id==2)
     <script type="text/javascript">
-           window.location.replace('{{ url('/home') }}')
+           window.location.replace('{{ url('/') }}')
     </script>
 @else 
     <!DOCTYPE html>

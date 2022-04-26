@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <title>@yield('page_title', 'PPDB SMKN 4 Bogor')</title>
+    <title>@yield('page_title', setting('site.title'))</title>
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="{{ url('/mobilekit1/') }}/assets/img/favicon.png" sizes="32x32">
@@ -26,7 +26,7 @@
 	                <ion-icon name="chevron-back-outline"></ion-icon>
 	            </a>
 	        </div>
-	        <div class="pageTitle">PPDB SMKN 4 BOGOR</div>
+	        <div class="pageTitle">{!! setting('site.title') !!}</div>
 	        <div class="right"></div>
 	    </div>
     <!-- * App Header -->
@@ -35,7 +35,7 @@
     <div id="appCapsule">
         <div class="section full mt-2">
             <div class="section-title">
-                @yield('page_title', 'PPDB SMKN 4 Bogor 2022')
+                @yield('page_title', setting('site.title'))
             </div>
             <div class="wide-block pt-2 pb-2">
                 @yield('content')            
