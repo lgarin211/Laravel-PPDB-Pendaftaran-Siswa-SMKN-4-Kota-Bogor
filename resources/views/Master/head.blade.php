@@ -38,6 +38,7 @@
                 @yield('page_title', setting('site.title'))
             </div>
             <div class="wide-block pt-2 pb-2">
+                @yield('c2')
                 @yield('content')            
             </div>
         </div>

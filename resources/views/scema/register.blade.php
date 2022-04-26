@@ -18,13 +18,11 @@
 </head>
 
 <body class="bg-white">
-
     <!-- loader -->
 {{--     <div id="loader">
         <div class="spinner-border text-primary" role="status"></div>
     </div> --}}
     <!-- * loader -->
-
     <!-- App Header -->
     <div class="appHeader no-border transparent position-absolute">
         <div class="left">
