@@ -8,12 +8,12 @@
         </div>
 
         @php
-            $tha=DB::table('posts')->orderBy('created_at','desc')->get();
+            $tha=DB::table('posts')->orderBy('created_at','desc')->limit(10)->get();
             // dd($tha);
         @endphp
 
         @foreach ($tha as $key=>$element)
-             <div class="section mt-3 mb-3">
+             <div class="section mt-3 mb-3 card">
                 <div class="card">
                     <img src="{!! url('storage/'.$element->image) !!}" class="card-img-top" alt="image">
                     <div class="card-body">
