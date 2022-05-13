@@ -23,7 +23,7 @@
 				<li>
 	                <a href="{{  url('/admin/dataumum/create') }}" class="item">
 	                    <div class="icon-box bg-primary">
-	                        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+	                        <ion-icon name="chat bubble-ellipses-outline"></ion-icon>
 	                    </div>
 	                    <div class="in">
 	                        Data Umum
@@ -74,7 +74,7 @@
 			@php
            		$table2=DB::table('Jalur_'.$table->first()->tipe_pendaftaran)->where('id',Auth::user()->id)->where('id_user',Auth::user()->id);
            		$nas['Pendaftaran']=$table2->first()
-           	@endphp 
+           	@endphp
            	@if ($table2->count()==0)
 				<li>
 	                <a href="{{  url('admin/jalur-'.strtolower($table->first()->tipe_pendaftaran).'/create') }}" class="item">
@@ -147,15 +147,27 @@
 				           			unset($datapin->id,$datapin->created_at,$datapin->updated_at,$datapin->id_user,$datapin->id_tipe_pendaftara);
 			        			@endphp
 			        			@empty ($datapin)
-			        			@else   
-					       			@foreach ($datapin as $key=>$element)
-					       			<p class="col-sm-6 text-left">{!! strtoupper(str_replace('_', ' ', $key)) !!} :
-					       			 	<strong> {!! $element !!} </strong>
-					       			</p>
-					           		@endforeach
+			        			@else
+			        				<table class="table text-left">
+									  <tbody>
+										@foreach ($datapin as $key=>$element)
+										    <tr>
+										      <th width="200px">{!! strtoupper(str_replace('_', ' ', $key)) !!}</th>
+										      <td class="text-left">
+											    @if(strpos($key,"foto")===0)
+													<img src="{{ url('/storage/'.$element) }}" class="img-fluid" style="max-height: 250px;">
+												@else
+								       			 	<strong> {!! $element !!} </strong>
+												@endif
+										      </td>
+										    </tr>
+						           		@endforeach
+									  </tbody>
+									</table>
 					           	@endempty
-					@endforeach
-	            </div>
+					@endforeach	
+				</div>
+				<a href="#" class="btn btn-primary col-12">Print data</a>
         	</div>
 		</div>
 		<hr>
