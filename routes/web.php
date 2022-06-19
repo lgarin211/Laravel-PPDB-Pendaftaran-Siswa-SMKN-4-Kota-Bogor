@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\newUs;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
+    // dd(Auth::user());
     return view('scema/proses');
 });
+
+Route::any('/import',[newUs::class,'import']);
 
 Route::get('/home', function () {
     return view('scema/home');
@@ -53,6 +57,18 @@ Route::post('/restination', function () {
     return redirect('/admin');
 });
     
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
 });

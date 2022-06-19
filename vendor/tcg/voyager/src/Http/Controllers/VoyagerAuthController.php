@@ -16,14 +16,14 @@ class VoyagerAuthController extends Controller
         if ($this->guard()->user()) {
             return redirect()->route('voyager.dashboard');
         }
-
         return Voyager::view('voyager::login');
     }
 
     public function postLogin(Request $request)
     {
-        $this->validateLogin($request);
 
+        $data=$this->validateLogin($request);
+        // dd($data);
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
