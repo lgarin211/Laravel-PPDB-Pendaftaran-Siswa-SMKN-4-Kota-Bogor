@@ -43,7 +43,7 @@ class FortifyServiceProvider extends ServiceProvider
             if ($user==true) {
                 return $user;
             }else{
-                return back();
+                return back();  
             }
         });
 
