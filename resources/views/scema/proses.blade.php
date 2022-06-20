@@ -82,7 +82,7 @@
 				<li>
 	                <a href="{{  url('/admin/'.$item['link'].'/create') }}" class="item">
 	                    <div class="icon-box bg-primary">
-	                        <ion-icon name="chat bubble-ellipses-outline"></ion-icon>
+							<ion-icon name="add-circle"></ion-icon>
 	                    </div>
 	                    <div class="in">
 	                        {{$item['text']}}
@@ -94,7 +94,7 @@
 					{{-- {{  url('/admin/'.$item['link'].'/'.Auth::user()->id.'/edit') }} --}}
 					<a href="#" class="item">
 							<div class="icon-box bg-success">
-								<ion-icon name="voyager-check"></ion-icon>
+								<ion-icon name="checkmark"></ion-icon>
 							</div>
 							<div class="in">
 								DATA KHUSUS
