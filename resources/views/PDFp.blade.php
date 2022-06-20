@@ -176,7 +176,7 @@
                             {{'~'}}
                             @endif
                         </strong></td>
-                </tr>
+              x  </tr>
                 <tr>
                     <td>JENIS KELAMIN</td>
                     <td>: <strong>
