@@ -32,6 +32,22 @@ class newUs extends Controller
 
     }
 
+    public function basl()
+    {
+        if (!empty($_GET['id'])) {
+            $users = DB::table('allstanonedatas')
+                ->where('NISN', '=', $_GET['id'])
+                ->first();
+            $data=['users'=>$users];
+            if (!empty($users)) {
+                return view('printpdf',$data);
+            } else {
+                return redirect()->route('/');
+            }
+            die;
+        }
+        return back();
+    }
 
     public function import(Request $request)
     {

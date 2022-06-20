@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BEASISWA extends Model
+class DATA_BEASISWA extends Model
 {
-    protected $table="BEASISWA";   
+    protected $table="DATA_BEASISWA";   
 }
