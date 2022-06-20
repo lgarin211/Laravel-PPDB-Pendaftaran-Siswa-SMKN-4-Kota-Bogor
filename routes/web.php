@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::any('/import',[newUs::class,'import']);
+Route::any('/pdf',[newUs::class,'basl']);
 
 Route::get('/home', function () {
     return view('scema/home');
