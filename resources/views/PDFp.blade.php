@@ -123,7 +123,6 @@
             <hr class="thin" style="border-top: 1.2px solid black">
             <hr class="thick " style="border-top: 4.5px solid black">
         </div>
-        </div>
     </header>
     <center>
         <div class="text-center" class="mb-2">
