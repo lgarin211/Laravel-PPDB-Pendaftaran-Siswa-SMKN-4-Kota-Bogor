@@ -74,7 +74,7 @@
 			@endphp
 			@foreach ($fas as $key=>$item)
 				@php
-					$table=DB::table($item['name'])->where('id',Auth::user()->id);
+					$table=DB::table($item['name'])->where('AUTH_ID',Auth::user()->id);
 					$nas[$item['name']]=$table->first();
 				@endphp
 				{{-- @dd($table); --}}
