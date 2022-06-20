@@ -18,9 +18,13 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    dd(Auth::user()->id);
-    return view('scema/proses');
+// Route::get('/', function () {
+//     dd(Auth::user()->id);
+//     return view('scema/proses');
+// });
+
+Route::get('/home', function () {
+    return view('scema/home');
 });
 
 Route::any('/import',[newUs::class,'import']);
