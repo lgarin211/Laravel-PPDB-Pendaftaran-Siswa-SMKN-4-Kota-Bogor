@@ -1,4 +1,3 @@
-{{-- @dump($users) --}}
 <!doctype html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
     <!-- <link rel="stylesheet" href=" https://printjs-4de6.kxcdn.com/print.min.css"> -->
-    <title>Data Pendataran Ulang {{$users->Fullname}} ~ {{$users->id}}</title>
+    <title>Data Pendataran Ulang {{ $users->DU_FULLNANE }} ~ {{ $users->id }}</title>
 
     <style>
         * {
@@ -133,9 +132,9 @@
                 SMK NEGERI 4 KOTA BOGOR<br>
                 Tahun Pelajaran 2021/2022<br>
             </h3>
-            <h4 class="text-center"> 
+            <h4 class="text-center">
                 Raport Umum
-{{--                 <small>
+                {{-- <small>
                     Jalur ABK, KETM, Kondisi Tertentu, Perpindahan Tugas Orang Tua/Guru, Prestasi Kejuaraan,
                     Prestasi Raport Unggulan dan Prioritas Jarak.
                 </small> --}}
@@ -149,159 +148,169 @@
     </style>
     <div class="text-right">
         <div class="card" style="width: 410px;">
-            Nama Lengkap : {{$users->Fullname}}
+            Nama Lengkap : {{ $users->DU_FULLNANE }}
         </div>
         <div class="card" style="width: 410px;">
-            NISN : {{$users->NISN}}
+            NISN : {{ $users->NISN }}
         </div>
         <div class="card" style="width: 410px;">
-            Jalur Pendaftaran : {{$users->JARDAF}}
+            Jalur Pendaftaran : edit
+            {{-- {{$users->JARDAF}} --}}
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <!-- <br> -->
             <h3 class="col-sm-12 judul">A. DATA DIRI</h3>
             <table>
                 <tr>
                     <td>NAMA LENGKAP</td>
                     <td>: <strong>
-                            @if(!empty($users->Fullname))
-                            @if($users->Fullname=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DU_FULLNANE))
+                                @if ($users->DU_FULLNANE == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DU_FULLNANE }}
+                                @endif
                             @else
-                            {{$users->Fullname}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
-              x  </tr>
+                        </strong>
+                    </td>
+                </tr>
                 <tr>
                     <td>JENIS KELAMIN</td>
                     <td>: <strong>
-                            @if(!empty($users->Gender))
-                            @if($users->Gender=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DU_GENDER))
+                                @if ($users->DU_GENDER == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DU_GENDER }}
+                                @endif
                             @else
-                            {{$users->Gender}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NIK/NO INDUK KELUARGA</td>
                     <td>: <strong>
-                            @if(!empty($users->NIK))
-                            @if($users->NIK=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DK_NIK))
+                                @if ($users->DK_NIK == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DK_NIK }}
+                                @endif
                             @else
-                            {{$users->NIK}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO KARTU KELUARGA</td>
                     <td>: <strong>
-                            @if(!empty($users->NO_KK))
-                            @if($users->NO_KK=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DK_NO_KK))
+                                @if ($users->DK_NO_KK == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DK_NO_KK }}
+                                @endif
                             @else
-                            {{$users->NO_KK}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TEMPAT LAHIR</td>
                     <td>: <strong>
-                            @if(!empty($users->TempatL))
-                            @if($users->TempatL=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DU_TEMPAT_LAHIR))
+                                @if ($users->DU_TEMPAT_LAHIR == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DU_TEMPAT_LAHIR }}
+                                @endif
                             @else
-                            {{$users->TempatL}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>AGAMA</td>
                     <td>: <strong>
-                            @if(!empty($users->Agama))
-                            @if($users->Agama=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DU_AGAMA))
+                                @if ($users->DU_AGAMA == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DU_AGAMA }}
+                                @endif
                             @else
-                            {{$users->Agama}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>KEWARGANEGARAAN</td>
                     <td>: <strong>
-                            @if(!empty($users->Kewarganegaraan))
-                            @if($users->Kewarganegaraan=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DU_KEWARGANEGARAAN))
+                                @if ($users->DU_KEWARGANEGARAAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DU_KEWARGANEGARAAN }}
+                                @endif
                             @else
-                            {{$users->Kewarganegaraan}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if(!empty($users->Berkebutuhan_khusus))
-                            @if($users->Berkebutuhan_khusus=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->Berkebutuhan_khusus))
+                                @if ($users->Berkebutuhan_khusus == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->Berkebutuhan_khusus }}
+                                @endif
                             @else
-                            {{$users->Berkebutuhan_khusus}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. REGISTRASI AKTA KELAHIRAN</td>
                     <td>: <strong>
-                            @if(!empty($users->NRAL))
-                            @if($users->NRAL=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DK_NO_AKTA_KELAHIRAN))
+                                @if ($users->DK_NO_AKTA_KELAHIRAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DK_NO_AKTA_KELAHIRAN }}
+                                @endif
                             @else
-                            {{$users->NRAL}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>ANAK KE</td>
                     <td>: <strong>
-                            @if(!empty($users->anak_ke))
-                            @if($users->anak_ke=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DU_ANAK_KE))
+                                @if ($users->DU_ANAK_KE == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DU_ANAK_KE }}
+                                @endif
                             @else
-                            {{$users->anak_ke}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
             </table>
 
@@ -315,170 +324,182 @@
                 <tr>
                     <td>JALAN</td>
                     <td>: <strong>
-                            @if(!empty($users->Jalan))
-                            @if($users->Jalan=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_JALAN))
+                                @if ($users->AL_JALAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_JALAN }}
+                                @endif
                             @else
-                            {{$users->Jalan}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>RT/RW</td>
                     <td>: <strong>
-                            @if(!empty($users->RT_RW))
-                            @if($users->RT_RW=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_RT_RW))
+                                @if ($users->AL_RT_RW == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_RT_RW }}
+                                @endif
                             @else
-                            {{$users->RT_RW}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>DUSUN KAMPUNG</td>
                     <td>: <strong>
-                            @if(!empty($users->Dusun))
-                            @if($users->Dusun=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_DUSUN))
+                                @if ($users->AL_DUSUN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_DUSUN }}
+                                @endif
                             @else
-                            {{$users->Dusun}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>DESA/KELURAHAN</td>
                     <td>: <strong>
-                            @if(!empty($users->Kelurahan))
-                            @if($users->Kelurahan=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_KELURAHAAN))
+                                @if ($users->AL_KELURAHAAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_KELURAHAAN }}
+                                @endif
                             @else
-                            {{$users->Kelurahan}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>KECAMATAN</td>
                     <td>: <strong>
-                            @if(!empty($users->Kecamatan))
-                            @if($users->Kecamatan=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_KECAMATAN))
+                                @if ($users->AL_KECAMATAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_KECAMATAN }}
+                                @endif
                             @else
-                            {{$users->Kecamatan}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>KODE POS</td>
                     <td>: <strong>
-                            @if(!empty($users->Pos))
-                            @if($users->Pos=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_POS))
+                                @if ($users->AL_POS == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_POS }}
+                                @endif
                             @else
-                            {{$users->Pos}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TINGGAL BERSAMA</td>
                     <td>: <strong>
-                            @if(!empty($users->Tempat_Tinggal))
-                            @if($users->Tempat_Tinggal=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_TINGGAL_BERSAMA))
+                                @if ($users->DD_TINGGAL_BERSAMA == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_TINGGAL_BERSAMA }}
+                                @endif
                             @else
-                            {{$users->Tempat_Tinggal}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TRANSPORTASI YANG DIGUNAKAN</td>
                     <td>: <strong>
-                            @if(!empty($users->Tranporttasi))
-                            @if($users->Tranporttasi=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_TRANSPORTASI))
+                                @if ($users->DD_TRANSPO == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_TRANSPO }}
+                                @endif
                             @else
-                            {{$users->Tranporttasi}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TELP. RUMAH</td>
                     <td>: <strong>
-                            @if(!empty($users->TelpRumah))
-                            @if($users->TelpRumah=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_KONTAK_RUMAH))
+                                @if ($users->DD_KONTAK_RUMAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_KONTAK_RUMAH }}
+                                @endif
                             @else
-                            {{$users->TelpRumah}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. HP</td>
                     <td>: <strong>
-                            @if(!empty($users->TelpHP))
-                            @if($users->TelpHP=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_KONTAK_PRIBADI))
+                                @if ($users->DD_KONTAK_PRIBADI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_KONTAK_PRIBADI }}
+                                @endif
                             @else
-                            {{$users->TelpHP}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>EMAIL</td>
                     <td>: <strong>
-                            @if(!empty($users->Email))
-                            @if($users->Email=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_EMAIL_PRIBADI))
+                                @if ($users->DD_EMAIL_PRIBADI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_EMAIL_PRIBADI }}
+                                @endif
                             @else
-                            {{$users->Email}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENERIMA KPS/KKS</td>
                     <td>: <strong>
-                            @if(!empty($users->spesialCard))
-                            @if($users->spesialCard=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->BW_SPESIAL_CARD))
+                                @if ($users->BW_SPESIAL_CARD == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->BW_SPESIAL_CARD }}
+                                @endif
                             @else
-                            {{$users->spesialCard}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -491,338 +512,362 @@
                 <tr>
                     <td>NAMA AYAH KANDUNG</td>
                     <td>: <strong>
-                            @if(!empty($users->NAMA_AYAH_KANDUNG))
-                            @if($users->NAMA_AYAH_KANDUNG=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NAMA_AYAH_KANDUNG))
+                                @if ($users->DO_NAMA_AYAH_KANDUNG == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NAMA_AYAH_KANDUNG }}
+                                @endif
                             @else
-                            {{$users->NAMA_AYAH_KANDUNG}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NIK AYAH KANDUNG</td>
                     <td>: <strong>
-                            @if(!empty($users->NIK_AYAH_KANDUNG))
-                            @if($users->NIK_AYAH_KANDUNG=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NIK_AYAH_KANDUNG))
+                                @if ($users->DO_NIK_AYAH_KANDUNG == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NIK_AYAH_KANDUNG }}
+                                @endif
                             @else
-                            {{$users->NIK_AYAH_KANDUNG}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TAHUN LAHIR</td>
                     <td>: <strong>
-                            @if(!empty($users->TAHUN_LAHIR_AYAH))
-                            @if($users->TAHUN_LAHIR_AYAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_TAHUN_LAHIR_AYAH))
+                                @if ($users->DO_TAHUN_LAHIR_AYAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_TAHUN_LAHIR_AYAH }}
+                                @endif
                             @else
-                            {{$users->TAHUN_LAHIR_AYAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENDIDIKAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PENDIDIKAN_AYAH))
-                            @if($users->PENDIDIKAN_AYAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PENDIDIKAN_AYAH))
+                                @if ($users->DO_PENDIDIKAN_AYAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PENDIDIKAN_AYAH }}
+                                @endif
                             @else
-                            {{$users->PENDIDIKAN_AYAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PEKERJAAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PEKERJAAN_AYAH))
-                            @if($users->PEKERJAAN_AYAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PEKERJAAN_AYAH))
+                                @if ($users->DO_PEKERJAAN_AYAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PEKERJAAN_AYAH }}
+                                @endif
                             @else
-                            {{$users->PEKERJAAN_AYAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENGHASILAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PENGHASILAN_AYAH))
-                            @if($users->PENGHASILAN_AYAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PENGHASILAN_AYAH))
+                                @if ($users->DO_PENGHASILAN_AYAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PENGHASILAN_AYAH }}
+                                @endif
                             @else
-                            {{$users->PENGHASILAN_AYAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if(!empty($users->BERKEBUTUHAN_KHUSUS_AYAH))
-                            @if($users->BERKEBUTUHAN_KHUSUS_AYAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_AYAH))
+                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_AYAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_AYAH }}
+                                @endif
                             @else
-                            {{$users->BERKEBUTUHAN_KHUSUS_AYAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. TELP/HP</td>
                     <td>: <strong>
-                            @if(!empty($users->NOMOR_TELEPON_AYAH))
-                            @if($users->NOMOR_TELEPON_AYAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NOMOR_TELEPON_AYAH))
+                                @if ($users->DO_NOMOR_TELEPON_AYAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NOMOR_TELEPON_AYAH }}
+                                @endif
                             @else
-                            {{$users->NOMOR_TELEPON_AYAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NAMA IBU KANDUNG</td>
                     <td>: <strong>
-                            @if(!empty($users->NAMA_IBU_KANDUNG))
-                            @if($users->NAMA_IBU_KANDUNG=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NAMA_IBU_KANDUNG))
+                                @if ($users->DO_NAMA_IBU_KANDUNG == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NAMA_IBU_KANDUNG }}
+                                @endif
                             @else
-                            {{$users->NAMA_IBU_KANDUNG}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NIK IBU KANDUNG</td>
                     <td>: <strong>
-                            @if(!empty($users->NIK_IBU_KANDUNG))
-                            @if($users->NIK_IBU_KANDUNG=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NIK_IBU_KANDUNG))
+                                @if ($users->DO_NIK_IBU_KANDUNG == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NIK_IBU_KANDUNG }}
+                                @endif
                             @else
-                            {{$users->NIK_IBU_KANDUNG}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TAHUN LAHIR</td>
                     <td>: <strong>
-                            @if(!empty($users->TAHUN_LAHIR_IBU))
-                            @if($users->TAHUN_LAHIR_IBU=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_TAHUN_LAHIR_IBU))
+                                @if ($users->DO_TAHUN_LAHIR_IBU == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_TAHUN_LAHIR_IBU }}
+                                @endif
                             @else
-                            {{$users->TAHUN_LAHIR_IBU}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENDIDIKAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PENDIDIKAN_IBU))
-                            @if($users->PENDIDIKAN_IBU=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PENDIDIKAN_IBU))
+                                @if ($users->DO_PENDIDIKAN_IBU == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PENDIDIKAN_IBU }}
+                                @endif
                             @else
-                            {{$users->PENDIDIKAN_IBU}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PEKERJAAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PEKERJAAN_IBU))
-                            @if($users->PEKERJAAN_IBU=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PEKERJAAN_IBU))
+                                @if ($users->DO_PEKERJAAN_IBU == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PEKERJAAN_IBU }}
+                                @endif
                             @else
-                            {{$users->PEKERJAAN_IBU}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENGHASILAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PENGHASILAN_IBU))
-                            @if($users->PENGHASILAN_IBU=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PENGHASILAN_IBU))
+                                @if ($users->DO_PENGHASILAN_IBU == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PENGHASILAN_IBU }}
+                                @endif
                             @else
-                            {{$users->PENGHASILAN_IBU}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if(!empty($users->BERKEBUTUHAN_KHUSUS_IBU))
-                            @if($users->BERKEBUTUHAN_KHUSUS_IBU=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_IBU))
+                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_IBU == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_IBU }}
+                                @endif
                             @else
-                            {{$users->BERKEBUTUHAN_KHUSUS_IBU}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. TELP/HP</td>
                     <td>: <strong>
-                            @if(!empty($users->NOMOR_TELEPON_IBU))
-                            @if($users->NOMOR_TELEPON_IBU=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NOMOR_TELEPON_IBU))
+                                @if ($users->DO_NOMOR_TELEPON_IBU == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NOMOR_TELEPON_IBU }}
+                                @endif
                             @else
-                            {{$users->NOMOR_TELEPON_IBU}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NAMA WALI</td>
                     <td>: <strong>
-                            @if(!empty($users->NAMA_WALI))
-                            @if($users->NAMA_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NAMA_WALI))
+                                @if ($users->DO_NAMA_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NAMA_WALI }}
+                                @endif
                             @else
-                            {{$users->NAMA_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NIK WALI</td>
                     <td>: <strong>
-                            @if(!empty($users->NIK_WALI))
-                            @if($users->NIK_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NIK_WALI))
+                                @if ($users->DO_NIK_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NIK_WALI }}
+                                @endif
                             @else
-                            {{$users->NIK_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TAHUN LAHIR</td>
                     <td>: <strong>
-                            @if(!empty($users->TAHUN_LAHIR_WALI))
-                            @if($users->TAHUN_LAHIR_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_TAHUN_LAHIR_WALI))
+                                @if ($users->DO_TAHUN_LAHIR_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_TAHUN_LAHIR_WALI }}
+                                @endif
                             @else
-                            {{$users->TAHUN_LAHIR_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENDIDIKAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PENDIDIKAN_WALI))
-                            @if($users->PENDIDIKAN_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PENDIDIKAN_WALI))
+                                @if ($users->DO_PENDIDIKAN_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PENDIDIKAN_WALI }}
+                                @endif
                             @else
-                            {{$users->PENDIDIKAN_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PEKERJAAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PEKERJAAN_WALI))
-                            @if($users->PEKERJAAN_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PEKERJAAN_WALI))
+                                @if ($users->DO_PEKERJAAN_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PEKERJAAN_WALI }}
+                                @endif
                             @else
-                            {{$users->PEKERJAAN_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENGHASILAN</td>
                     <td>: <strong>
-                            @if(!empty($users->PENGHASILAN_WALI))
-                            @if($users->PENGHASILAN_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_PENGHASILAN_WALI))
+                                @if ($users->DO_PENGHASILAN_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_PENGHASILAN_WALI }}
+                                @endif
                             @else
-                            {{$users->PENGHASILAN_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if(!empty($users->BERKEBUTUHAN_KHUSUS_WALI))
-                            @if($users->BERKEBUTUHAN_KHUSUS_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_WALI))
+                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_WALI }}
+                                @endif
                             @else
-                            {{$users->BERKEBUTUHAN_KHUSUS_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. TELP/HP</td>
                     <td>: <strong>
-                            @if(!empty($users->NOMOR_TELEPON_WALI))
-                            @if($users->NOMOR_TELEPON_WALI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DO_NOMOR_TELEPON_WALI))
+                                @if ($users->DO_NOMOR_TELEPON_WALI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DO_NOMOR_TELEPON_WALI }}
+                                @endif
                             @else
-                            {{$users->NOMOR_TELEPON_WALI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
             </table>
 
@@ -835,86 +880,92 @@
                 <tr>
                     <td>TINGGI BADAN</td>
                     <td>: <strong>
-                            @if(!empty($users->TINGGI_BADAN))
-                            @if($users->TINGGI_BADAN=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DM_TINNGI_BADAN))
+                                @if ($users->DM_TINNGI_BADAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DM_TINNGI_BADAN }}
+                                @endif
                             @else
-                            {{$users->TINGGI_BADAN}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>BERAT BADAN</td>
                     <td>: <strong>
-                            @if(!empty($users->BERAT_BADAN))
-                            @if($users->BERAT_BADAN=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DM_BERAT_BADAN))
+                                @if ($users->DM_BERAT_BADAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DM_BERAT_BADAN }}
+                                @endif
                             @else
-                            {{$users->BERAT_BADAN}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>JARAK RUMAH KE SEKOLAH</td>
                     <td>: <strong>
-                            @if(!empty($users->JRS))
-                            @if($users->JRS=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_JRS))
+                                @if ($users->DD_JRS == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_JRS }}
+                                @endif
                             @else
-                            {{$users->JRS}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>SEBUTKAN DALAM KILOMETER</td>
                     <td>: <strong>
-                            @if(!empty($users->JRS_KM))
-                            @if($users->JRS_KM=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_JRS_KM))
+                                @if ($users->DD_JRS_KM == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_JRS_KM }} KM
+                                @endif
                             @else
-                            {{$users->JRS_KM}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>WAKTU TEMPUH KE SEKOLAH</td>
                     <td>: <strong>
-                            @if(!empty($users->WTS))
-                            @if($users->WTS=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DD_WAKTU_TEMPUH))
+                                @if ($users->DD_WAKTU_TEMPUH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DD_WAKTU_TEMPUH }} MENIT
+                                @endif
                             @else
-                            {{$users->WTS}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>JUMLAH SAUDARA KANDUNG</td>
                     <td>: <strong>
-                            @if(!empty($users->JSK))
-                            @if($users->JSK=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->JSK))
+                                @if ($users->JSK == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->JSK }}
+                                @endif
                             @else
-                            {{$users->JSK}}
+                                {{ '~COUNT' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
             </table>
 
@@ -928,72 +979,77 @@
                 <tr>
                     <td>JENIS PRESTASI</td>
                     <td>: <strong>
-                            @if(!empty($users->PrestasiJenis))
-                            @if($users->PrestasiJenis=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DP_PRESTASI_JENIS))
+                                @if ($users->DP_PRESTASI_JENIS == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DP_PRESTASI_JENIS }}
+                                @endif
                             @else
-                            {{$users->PrestasiJenis}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>TINGKAT PRESTASI</td>
                     <td>: <strong>
-                            @if(!empty($users->Tinggkat))
-                            @if($users->Tinggkat=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DP_PRESTASI_TINGKAT))
+                                @if ($users->DP_PRESTASI_TINGKAT == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DP_PRESTASI_TINGKAT }}
+                                @endif
                             @else
-                            {{$users->Tinggkat}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>NAMA PRESTASI</td>
                     <td>: <strong>
-                            @if(!empty($users->Title))
-                            @if($users->Title=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DP_PRESTASI_TITTLE))
+                                @if ($users->DP_PRESTASI_TITTLE == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DP_PRESTASI_TITTLE }}
+                                @endif
                             @else
-                            {{$users->Title}}
+                                {{ '~COUNT' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TAHUN PRESTASI</td>
                     <td>: <strong>
-                            @if(!empty($users->Tahun))
-                            @if($users->Tahun=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DP_PRESTASI_TAHUN))
+                                @if ($users->DP_PRESTASI_TAHUN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DP_PRESTASI_TAHUN }}
+                                @endif
                             @else
-                            {{$users->Tahun}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>PENYELENGGARA</td>
                     <td>: <strong>
-                            @if(!empty($users->Penyelengara))
-                            @if($users->Penyelengara=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DP_PRESTASI_PENYELENGGARAN))
+                                @if ($users->DP_PRESTASI_PENYELENGGARAN == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DP_PRESTASI_PENYELENGGARAN }}
+                                @endif
                             @else
-                            {{$users->Penyelengara}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
 
             </table>
@@ -1009,58 +1065,63 @@
                 <tr>
                     <td>JENIS BEASISWA</td>
                     <td>: <strong>
-                            @if(!empty($users->BeasiswaJenis))
-                            @if($users->BeasiswaJenis=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->BW_JENIS_BEASISWA))
+                                @if ($users->BW_JENIS_BEASISWA == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->BW_JENIS_BEASISWA }}
+                                @endif
                             @else
-                            {{$users->BeasiswaJenis}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>KETERANGAN</td>
                     <td>: <strong>
-                            @if(!empty($users->Keterangan))
-                            @if($users->Keterangan=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->Keterangan))
+                                @if ($users->Keterangan == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->Keterangan }}
+                                @endif
                             @else
-                            {{$users->Keterangan}}
+                                {{ '~Count' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                        
+                    </td>
                 </tr>
                 <tr>
                     <td>TAHUN MULAI </td>
                     <td>: <strong>
-                            @if(!empty($users->Mulai))
-                            @if($users->Mulai=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->BW_MULAI))
+                                @if ($users->BW_MULAI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->BW_MULAI }}
+                                @endif
                             @else
-                            {{$users->Mulai}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TAHUN SELESAI</td>
                     <td>: <strong>
-                            @if(!empty($users->Selesai))
-                            @if($users->Selesai=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->BW_SELESAI))
+                                @if ($users->BW_SELESAI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->BW_SELESAI }}
+                                @endif
                             @else
-                            {{$users->Selesai}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
 
 
@@ -1080,198 +1141,212 @@
                 <tr>
                     <td>PROVINSI</td>
                     <td>: <strong>
-                            @if(!empty($users->PROVINSI))
-                            @if($users->PROVINSI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->AL_PROVINSI))
+                                @if ($users->AL_PROVINSI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->AL_PROVINSI }}
+                                @endif
                             @else
-                            {{$users->PROVINSI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>KOTA/KAB</td>
                     <td>: <strong>
-                            @if(!empty($users->KOTA))
-                            @if($users->KOTA=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->KOTA))
+                                @if ($users->KOTA == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->KOTA }}
+                                @endif
                             @else
-                            {{$users->KOTA}}
+                                {{ '~COUNT' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong> </td>
+                        </strong>
+                     </td>
                 </tr>
                 <tr>
                     <td>GOLONGAN DARAH </td>
                     <td>: <strong>
-                            @if(!empty($users->GOLDARAH))
-                            @if($users->GOLDARAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->GOLDARAH))
+                                @if ($users->GOLDARAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->GOLDARAH }}
+                                @endif
                             @else
-                            {{$users->GOLDARAH}}
+                                {{ '~COUNT' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>TANGGAL DITERIMA DISEKOLAH INI</td>
                     <td>: <strong>
-                            @if(!empty($users->TGL_DITERIMA_DISEKOLAH_INI))
-                            @if($users->TGL_DITERIMA_DISEKOLAH_INI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->TGL_DITERIMA_DISEKOLAH_INI))
+                                @if ($users->TGL_DITERIMA_DISEKOLAH_INI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->TGL_DITERIMA_DISEKOLAH_INI }}
+                                @endif
                             @else
-                            {{$users->TGL_DITERIMA_DISEKOLAH_INI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>ASAL SEKOLAH (SMP/MTS)</td>
                     <td>: <strong>
-                            @if(!empty($users->ASAL_SEKOLAH))
-                            @if($users->ASAL_SEKOLAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->SS_ASAL_SEKOLAH))
+                                @if ($users->SS_ASAL_SEKOLAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->SS_ASAL_SEKOLAH }}
+                                @endif
                             @else
-                            {{$users->ASAL_SEKOLAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>KOTA ATAU KABUPATEN ASAL SEKOLAH</td>
                     <td>: <strong>
-                            @if(!empty($users->KOTA_ASAL_SEKOLAH))
-                            @if($users->KOTA_ASAL_SEKOLAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->SS_KOTA_ASAL_SEKOLAH))
+                                @if ($users->SS_KOTA_ASAL_SEKOLAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->SS_KOTA_ASAL_SEKOLAH }}
+                                @endif
                             @else
-                            {{$users->KOTA_ASAL_SEKOLAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>KECAMATAN ASAL SEKOLAH </td>
                     <td>: <strong>
-                            @if(!empty($users->KEC_ASAL_SEKOLAH))
-                            @if($users->KEC_ASAL_SEKOLAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->SS_KEC_ASAL_SEKOLAH))
+                                @if ($users->SS_KEC_ASAL_SEKOLAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->SS_KEC_ASAL_SEKOLAH }}
+                                @endif
                             @else
-                            {{$users->KEC_ASAL_SEKOLAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. IJAZAH</td>
                     <td>: <strong>
-                            @if(!empty($users->NOIJAZAH))
-                            @if($users->NOIJAZAH=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->DK_NO_IJAZAH))
+                                @if ($users->DK_NO_IJAZAH == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->DK_NO_IJAZAH }}
+                                @endif
                             @else
-                            {{$users->NOIJAZAH}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>CITA~CITA</td>
                     <td>: <strong>
-                            @if(!empty($users->CITA))
-                            @if($users->CITA=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->CITA))
+                                @if ($users->CITA == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->CITA }}
+                                @endif
                             @else
-                            {{$users->CITA}}
+                                {{ '~COUNT' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO. PESERTA UJIAN SEKOLAH SMP</td>
                     <td>: <strong>
-                            @if(!empty($users->nous))
-                            @if($users->nous=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->nous))
+                                @if ($users->nous == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->nous }}
+                                @endif
                             @else
-                            {{$users->nous}}
+                                {{ '~COUNT' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>HOBI</td>
                     <td>: <strong>
-                            @if(!empty($users->HOBI))
-                            @if($users->HOBI=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->CC_HOBI))
+                                @if ($users->CC_HOBI == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->CC_HOBI }}
+                                @endif
                             @else
-                            {{$users->HOBI}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>KELAS</td>
                     <td>: <strong>
-                            @if(!empty($users->KELAS))
-                            @if($users->KELAS=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->CC_KELAS))
+                                @if ($users->CC_KELAS == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->CC_KELAS }}
+                                @endif
                             @else
-                            {{$users->KELAS}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>Ekstrakurikuler Yang Di Minati</td>
                     <td>: <strong>
-                            @if(!empty($users->ekskul))
-                            @if($users->ekskul=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->ekskul))
+                                @if ($users->ekskul == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->ekskul }}
+                                @endif
                             @else
-                            {{$users->ekskul}}
+                                {{ '~' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
                 <tr>
                     <td>NO INDUK SEKOLAH(NIS)</td>
                     <td>: <strong>
-                            @if(!empty($users->NIS))
-                            @if($users->NIS=='PILIH')
-                            {{'~'}}
+                            @if (!empty($users->NIS))
+                                @if ($users->NIS == null)
+                                    {{ '~' }}
+                                @else
+                                    {{ $users->NIS }}
+                                @endif
                             @else
-                            {{$users->NIS}}
+                                {{ '~ COUND' }}
                             @endif
-                            @else
-                            {{'~'}}
-                            @endif
-                        </strong></td>
+                        </strong>
+                    </td>
                 </tr>
 
 
@@ -1343,7 +1418,7 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
     <script>
         window.print()
@@ -1353,8 +1428,12 @@
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
+    </script>
     -->
 </body>
 

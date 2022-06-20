@@ -50,18 +50,12 @@ class newUs extends Controller
             ->join('DATA_SENSUS_UMUM', 'users.id', '=', 'DATA_SENSUS_UMUM.AUTH_ID')
             ->select('*')
             ->where('users.id',  $_GET['id'])
-            // ->where('users.id',  Auth::user()->id)
-            ->get();
+            ->first();
 
-            dd($users);
-
-
-            $users = DB::table('allstanonedatas')
-                ->where('NISN', '=', $_GET['id'])
-                ->first();
+            // dd($users);
             $data=['users'=>$users];
             if (!empty($users)) {
-                return view('printpdf',$data);
+                return view('PDFp',$data);
             } else {
                 return redirect()->route('/');
             }
