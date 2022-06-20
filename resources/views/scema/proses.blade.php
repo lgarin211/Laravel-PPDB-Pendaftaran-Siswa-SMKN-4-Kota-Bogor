@@ -91,7 +91,7 @@
 	            </li>
 				@else
 				<li>
-					{{  url('/admin/'.$item['link'].'/'.Auth::user()->id.'/edit') }}
+					{{-- {{  url('/admin/'.$item['link'].'/'.Auth::user()->id.'/edit') }} --}}
 					<a href="#" class="item">
 							<div class="icon-box bg-danger">
 								<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
