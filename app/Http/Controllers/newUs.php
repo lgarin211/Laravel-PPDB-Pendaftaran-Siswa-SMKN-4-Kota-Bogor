@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class newUs extends Controller
 {
@@ -35,6 +36,26 @@ class newUs extends Controller
     public function basl()
     {
         if (!empty($_GET['id'])) {
+            $users = DB::table('users')
+            ->join('DATA_UMUM', 'users.id', '=', 'DATA_UMUM.AUTH_ID')
+            ->join('DATA_KHUSUS', 'users.id', '=', 'DATA_KHUSUS.AUTH_ID')
+            ->join('DATA_ORANGTUA', 'users.id', '=', 'DATA_ORANGTUA.AUTH_ID')
+            ->join('DATA_BEASISWA', 'users.id', '=', 'DATA_BEASISWA.AUTH_ID')
+            ->join('DATA_ALAMAT', 'users.id', '=', 'DATA_ALAMAT.AUTH_ID')
+            ->join('CITA_CITA', 'users.id', '=', 'CITA_CITA.AUTH_ID')
+            ->join('DATA_COVID', 'users.id', '=', 'DATA_COVID.AUTH_ID')
+            ->join('DATA_MEDIS', 'users.id', '=', 'DATA_MEDIS.AUTH_ID')
+            ->join('DATA_PRESTASI', 'users.id', '=', 'DATA_PRESTASI.AUTH_ID')
+            ->join('DATA_SENSUS_SEKOLAH_ASAL', 'users.id', '=', 'DATA_SENSUS_SEKOLAH_ASAL.AUTH_ID')
+            ->join('DATA_SENSUS_UMUM', 'users.id', '=', 'DATA_SENSUS_UMUM.AUTH_ID')
+            ->select('*')
+            ->where('users.id',  $_GET['id'])
+            // ->where('users.id',  Auth::user()->id)
+            ->get();
+
+            dd($users);
+
+
             $users = DB::table('allstanonedatas')
                 ->where('NISN', '=', $_GET['id'])
                 ->first();
