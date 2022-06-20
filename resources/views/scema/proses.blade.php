@@ -62,7 +62,7 @@
 					],
 					9=>[
 						'name'=>'DATA_SENSUS_SEKOLAH_ASAL',
-						'link'=>'data-sensus-sekola-asal',
+						'link'=>'data-sensus-sekolah-asal',
 						'text'=>"SENSUS SEKOLAH ASAL",
 					],
 					10=>[
@@ -91,7 +91,8 @@
 	            </li>
 				@else
 				<li>
-					<a href="{{  url('/admin/'.$item['link'].'/'.Auth::user()->id.'/edit') }}" class="item">
+					{{  url('/admin/'.$item['link'].'/'.Auth::user()->id.'/edit') }}
+					<a href="#" class="item">
 							<div class="icon-box bg-danger">
 								<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
 							</div>
