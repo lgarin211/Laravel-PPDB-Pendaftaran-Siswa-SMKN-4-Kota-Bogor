@@ -43,9 +43,9 @@
                 <ion-icon name="log-out-outline"></ion-icon>
                 KELUAR
             </div>
-        </a> --}}
+        </a> 
         @endif
-
+        --}}
         <form action="{{url('/admin/logout')}}" method="POST">
             @csrf
             <button type="submit" class="" id="masss" style="display: none;"></button>
