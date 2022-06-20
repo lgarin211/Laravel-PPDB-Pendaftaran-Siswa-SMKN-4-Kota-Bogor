@@ -19,9 +19,9 @@ class UsersImport implements ToModel
             $data=[
                 'reg_number'=> $row[0],
                 'NISN' => $row[1], 
-                'NIK' => $row[2],
+                'NIK' => $row[4],
                 'tgl_lahir' => $row[2],
-                'NO_KK' => $row[4],
+                'NO_KK' => $row[3],
                 'name' => $row[5],
                 'Kejuruan' => $row[7],
                 'ASAL-SEKOLAH' => $row[6],
