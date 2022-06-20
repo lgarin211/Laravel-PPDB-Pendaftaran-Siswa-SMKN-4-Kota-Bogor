@@ -93,8 +93,8 @@
 				<li>
 					{{-- {{  url('/admin/'.$item['link'].'/'.Auth::user()->id.'/edit') }} --}}
 					<a href="#" class="item">
-							<div class="icon-box bg-danger">
-								<ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+							<div class="icon-box bg-success">
+								<ion-icon name="voyager-check"></ion-icon>
 							</div>
 							<div class="in">
 								DATA KHUSUS
