@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Auth;
 //     return view('scema/proses');
 // });
 
+Route::get('/', function () {
+    return view('scema/home');
+});
+
 Route::get('/home', function () {
     return view('scema/home');
 });
