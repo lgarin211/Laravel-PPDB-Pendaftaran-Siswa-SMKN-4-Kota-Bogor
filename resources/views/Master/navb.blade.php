@@ -11,7 +11,7 @@
                 HOME
             </div>
         </a>
-        <a href="{{ url('/') }}" class="item">
+        {{-- <a href="{{ url('/') }}" class="item">
             <div class="col">
                 <ion-icon name="newspaper-outline"></ion-icon>
                 PENDAFTARAN
@@ -43,7 +43,7 @@
                 <ion-icon name="log-out-outline"></ion-icon>
                 KELUAR
             </div>
-        </a>
+        </a> --}}
         @endif
 
         <form action="{{url('/admin/logout')}}" method="POST">

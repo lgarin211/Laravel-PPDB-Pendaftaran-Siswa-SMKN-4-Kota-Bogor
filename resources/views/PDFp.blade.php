@@ -87,8 +87,7 @@
             font-weight: normal;
         }
 
-        th,
-        td {
+        th,td {
             padding: 5px;
             width: 25%;
         }
