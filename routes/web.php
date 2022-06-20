@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Route::get('/', function () {
+    dd(Auth::user()->id);
     return view('scema/proses');
 });
 
