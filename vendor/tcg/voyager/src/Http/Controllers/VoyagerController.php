@@ -22,8 +22,8 @@ class VoyagerController extends Controller
     public function logout()
     {
         Auth::logout();
-
-        return redirect()->route('voyager.login');
+        return redirect('/');
+        // return redirect()->route('voyager.login');
     }
 
     public function upload(Request $request)

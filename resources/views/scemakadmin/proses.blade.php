@@ -2,6 +2,11 @@
     <script type="text/javascript">
         window.location.replace('{{ url('/admin') }}')
     </script>
+@elseif (empty($_GET['id']))
+    @php
+        $nwk = back();
+    @endphp
+    {{ back() }}
 @else
     @extends('Master/master')
     @section('content')
@@ -9,7 +14,7 @@
             $nas = [];
         @endphp
         <div class="header-large-title">
-            <h4 class="title text-center"> FORM DAFTAR ULANG </h4>
+            <h4 class="title text-center"> DATA SISWA </h4>
         </div>
 
         <ul class="listview image-listview flush transparent mt-3 mb-2">
@@ -70,8 +75,7 @@
                         'link' => 'data-prestasi',
                         'text' => 'DATA PRESTASI',
                     ],
-
-                ];                
+                ];
                 $pawi = [
                     11 => [
                         'name' => 'DOKUMEN_PERSYARATAN',
@@ -82,7 +86,7 @@
             @endphp
             @foreach ($fas as $key => $item)
                 @php
-                    $table = DB::table($item['name'])->where('AUTH_ID', Auth::user()->id);
+                    $table = DB::table($item['name'])->where('AUTH_ID', $_GET['id']);
                     $nas[$item['name']] = $table->first();
                 @endphp
                 @if ($table->count() == 0)
@@ -164,33 +168,33 @@
                                                                     $key2="RT/RW";
                                                                 @endphp
                                                             @elseif ($key2 == 'DP_PRESTASI_JENIS')
-                                                            @php
-                                                                $key2="JENIS PRESTASI";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="JENIS PRESTASI";
+                                                                @endphp
                                                             @elseif ($key2 == 'DP_PRESTASI_TINGGKAT')
-                                                            @php
-                                                                $key2="TINGKAT PRESTASI";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="TINGKAT PRESTASI";
+                                                                @endphp
                                                             @elseif ($key2 == 'DP_PRESTASI_TAHUN')
-                                                            @php
-                                                                $key2="TAHUN PRESTASI";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="TAHUN PRESTASI";
+                                                                @endphp
                                                             @elseif ($key2 == 'DP_PRESTASI_PENYELENGGARAN')
-                                                            @php
-                                                                $key2="PENYELENGGARA";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="PENYELENGGARA";
+                                                                @endphp
                                                             @elseif ($key2 == 'DP_PRESTASI_TITTLE')
-                                                            @php
-                                                                $key2="NAMA PRESTASI";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="NAMA PRESTASI";
+                                                                @endphp
                                                             @elseif ($key2 == 'nous')
-                                                            @php
-                                                                $key2="NOMOR UJIAN SEKOLAH SMP";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="NOMOR UJIAN SEKOLAH SMP";
+                                                                @endphp
                                                             @elseif ($key2 == 'Keterangan')
-                                                            @php
-                                                                $key2="KETERANGAN";
-                                                            @endphp
+                                                                @php
+                                                                    $key2="KETERANGAN";
+                                                                @endphp
                                                             @endif
                                                             @php
                                                                 $key2 = str_replace('KANDUNG', ' ', $key2);
@@ -224,8 +228,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                        <a href="{{ url('/admin/' . $item['link'] . '/' . $id_pin . '/edit') }}"
-                                            class="btn btn-warning">Edit</a>
+                                        {{-- <a href="{{ url('/admin/' . $item['link'] . '/' . $id_pin . '/edit') }}"
+                                            class="btn btn-warning">Edit</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +243,7 @@
             @endphp
             @foreach ($pawi as $key => $item)
                 @php
-                    $table = DB::table($item['name'])->where('AUTH_ID', Auth::user()->id);
+                    $table = DB::table($item['name'])->where('AUTH_ID', $_GET['id']);
                     $ran[$item['name']] = $table->first();
                 @endphp
                 @if ($table->count() == 0)
@@ -260,7 +264,7 @@
                     @php
                         $lawir = 0;
                         foreach ($ran[$item['name']] as $masu_key => $masu) {
-                            if ($masu =='[]') {
+                            if ($masu == '[]') {
                                 $lawir++;
                             }
                         }
@@ -302,7 +306,7 @@
                 @endphp
             @endforeach
 
-            @if ($pon == 0)
+            {{-- @if ($pon == 0)
                 <div class="text-center bg-danger col-12 card">
                     <p class="mt-3">
                         PASTIKAN SELURUH DATA PENDAFTARAN SUDAH DI ISI DENGAN LENGKAP (CEKLIS HIJAU)
@@ -310,9 +314,9 @@
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <a href="pdf?id={{ Auth::user()->id }}" class="col-md-12 btn btn-success btn-lg">PRINT FORMULIR</a>
+                    <a href="pdf?id={{ $_GET['id'] }}" class="col-md-12 btn btn-success btn-lg">PRINT FORMULIR</a>
                 </div>
-            @endif
+            @endif --}}
 
         </ul>
     @endsection

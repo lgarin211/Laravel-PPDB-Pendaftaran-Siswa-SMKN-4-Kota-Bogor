@@ -28,7 +28,6 @@ $add = is_null($dataTypeContent->getKey());
     <div class="page-content edit-add container-fluid">
         <div class="row">
             <div class="col-md-12">
-
                 <div class="panel panel-bordered">
                     <!-- form start -->
                     <form role="form" class="form-edit-add"
@@ -68,6 +67,17 @@ $add = is_null($dataTypeContent->getKey());
                                     <input type="hidden" name="{{ $row->field }}" value="{{ Auth::user()->id }}">
                                 @elseif ($row->field == 'id')
                                     <input type="hidden" name="{{ $row->field }}" value="{{ Auth::user()->id }}">
+                                @elseif ($row->field == 'DU_FULLNANE')
+                                    <div class="form-group  col-md-12 ">
+                                        <label class="control-label" for="{{ $row->field }}">NAMA LENGKAP</label>
+                                        <input type="text" class="form-control" name="{{ $row->field }}" readonly
+                                            value="{{ Auth::user()->name }}">
+                                    </div>
+                                    {{-- @elseif ($row->field=='DU_TANGGAL_LAHIR')
+                                    <div class="form-group  col-md-12 ">   
+                                        <label class="control-label" for="{{ $row->field }}">TANGGAL LAHIR</label>
+                                        <input type="text" class="form-control" name="{{ $row->field }}" readonly value="{{ Auth::user()->tgl_lahir }}">
+                                    </div> --}}
                                 @else
                                     <!-- GET THE DISPLAY OPTIONS -->
                                     @php
@@ -117,7 +127,6 @@ $add = is_null($dataTypeContent->getKey());
                                     </div>
                                 @endif
                             @endforeach
-
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
@@ -127,13 +136,14 @@ $add = is_null($dataTypeContent->getKey());
                                     display: none;
                                 }
                             </style>
-                            <button type="submit" class="btn btn-primary save col-12" id="tombolsimpan"
-                                onclick="pwir()">{{ __('voyager::generic.save') }}</button>
-                            <a href="#" class="btn btn-primary save hiow" id="benpas">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </a>
+                            {{-- <button type="submit" class="btn btn-primary save col-12" id="tombolsimpan" onclick="pwir()">{{ __('voyager::generic.save') }}</button> --}}
+                            @if (Auth::user()->role_id != 3)
+                                <a href="#" class="btn btn-light save hiow text-center" id="benpas">
+                                    <div class="spinner-border text-primary text-center" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </a>
+                            @endif
                             <script>
                                 function pwir() {
                                     document.getElementById('tombolsimpan').classList.toggle('hiow')
@@ -146,13 +156,13 @@ $add = is_null($dataTypeContent->getKey());
                 </form>
 
                 <iframe id="form_target" name="form_target" style="display:none"></iframe>
-                <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-                    enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
-                    <input name="image" id="upload_file" type="file"
-                        onchange="$('#my_form').submit();this.value='';">
-                    <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
-                    {{ csrf_field() }}
-                </form>
+                {{-- <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
+                            enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+                        <input name="image" id="upload_file" type="file"
+                                 onchange="$('#my_form').submit();this.value='';">
+                        <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
+                        {{ csrf_field() }}
+                    </form> --}}
 
             </div>
         </div>
@@ -263,4 +273,14 @@ $add = is_null($dataTypeContent->getKey());
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+@if (Auth::user()->role_id == 3)
+    <script>
+        var naw = document.getElementsByTagName('input')
+        for (let i = 0; i < naw.length; i++) {
+            const law = naw[i];
+            law.style.display = "none";
+        }
+    </script>
+@endif
 @stop

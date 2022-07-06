@@ -58,7 +58,6 @@
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                             @endphp
-
                             @foreach($dataTypeRows as $row)
                                 @if ($row->field=='id_user')
                                     <input type="hidden" name="{{ $row->field }}" value="{{ Auth::user()->id }}">
@@ -68,6 +67,16 @@
                                     <input type="hidden" name="{{ $row->field }}" value="{{ Auth::user()->id }}">
                                 @elseif ($row->field=='id')
                                     <input type="hidden" name="{{ $row->field }}" value="{{ Auth::user()->id }}">
+                                    @elseif ($row->field=='DK_NIK')
+                                    <div class="form-group  col-md-12 ">   
+                                        <label class="control-label" for="{{ $row->field }}">No NIK</label>
+                                        <input type="text" class="form-control" name="{{ $row->field }}" readonly value="{{ Auth::user()->NIK }}">
+                                    </div>
+                                @elseif ($row->field=='DK_NO_KK')
+                                    <div class="form-group  col-md-12 ">   
+                                        <label class="control-label" for="{{ $row->field }}">No KK  </label>
+                                        <input type="text" class="form-control" name="{{ $row->field }}" readonly value="{{ Auth::user()->NO_KK }}">
+                                    </div>
                                 @else
                                     <!-- GET THE DISPLAY OPTIONS -->
                                     @php
@@ -108,7 +117,23 @@
 
                         <div class="panel-footer">
                             @section('submit-buttons')
-                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                            <style>
+                                .hiow{
+                                    display: none;
+                                }
+                            </style>
+                                <button type="submit" class="btn btn-primary save col-12" id="tombolsimpan" onclick="pwir()">{{ __('voyager::generic.save') }}</button>
+                                <a href="#" class="btn btn-primary save hiow" id="benpas">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </a>
+                                <script>
+                                    function pwir() {
+                                        document.getElementById('tombolsimpan').classList.toggle('hiow')                                    
+                                        document.getElementById('benpas').classList.toggle('hiow')                                    
+                                    }
+                                </script>
                             @stop
                             @yield('submit-buttons')
                         </div>

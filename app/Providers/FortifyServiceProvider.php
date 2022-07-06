@@ -38,7 +38,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::authenticateUsing(function (Request $request) {
             // dd('agus');
             $user = User::where('NISN', $request->NISN)
-                ->orWhere('email', $request->NISN)->where('reg_number', $request->reg_number)->first();
+                ->orWhere('email', $request->NISN)->where('tgl_lahir', $request->reg_number)->first();
             // dd($user);
             if ($user==true) {
                 return $user;

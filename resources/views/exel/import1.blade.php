@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action="{{url('/import')}}" method="post" enctype="multipart/form-data">
+    <form action="{{url('/admin/import')}}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="file" name="ezl">
         <button type="submit">kirim</button>

@@ -108,7 +108,19 @@
 
                         <div class="panel-footer">
                             @section('submit-buttons')
-                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                            <style>
+                                .hiow{
+                                    display: none;
+                                }
+                            </style>
+                                <button type="submit" class="btn btn-primary save col-12" id="tombolsimpan" onclick="pwir()">{{ __('voyager::generic.save') }}</button>
+                                <a href="#" class="btn btn-primary save hiow" id="benpas">PROSES</a>
+                                <script>
+                                    function pwir() {
+                                        document.getElementById('tombolsimpan').classList.toggle('hiow')                                    
+                                        document.getElementById('benpas').classList.toggle('hiow')                                    
+                                    }
+                                </script>
                             @stop
                             @yield('submit-buttons')
                         </div>

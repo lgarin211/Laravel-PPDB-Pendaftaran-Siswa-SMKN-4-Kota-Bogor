@@ -279,7 +279,8 @@ class VoyagerBaseController extends Controller
     //****************************************
 
     public function edit(Request $request, $id)
-    {
+    {   
+
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -318,8 +319,9 @@ class VoyagerBaseController extends Controller
         $this->eagerLoadRelations($dataTypeContent, $dataType, 'edit', $isModelTranslatable);
 
         $view = 'voyager::bread.edit-add';
-
+        // dd('tinus');
         if (view()->exists("voyager::$slug.edit-add")) {
+            // dd('tinus');
             $view = "voyager::$slug.edit-add";
         }
 
@@ -372,11 +374,12 @@ class VoyagerBaseController extends Controller
         } else {
             $redirect = redirect()->back();
         }
-
-        return $redirect->with([
-            'message'    => __('voyager::generic.successfully_updated')." {$dataType->getTranslatedAttribute('display_name_singular')}",
-            'alert-type' => 'success',
-        ]);
+        
+        return redirect('/dashboard');
+        // return $redirect->with([
+        //     'message'    => __('voyager::generic.successfully_updated')." {$dataType->getTranslatedAttribute('display_name_singular')}",
+        //     'alert-type' => 'success',
+        // ]);
     }
 
     //***************************************

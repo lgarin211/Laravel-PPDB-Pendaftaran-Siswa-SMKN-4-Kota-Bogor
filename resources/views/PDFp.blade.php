@@ -109,7 +109,7 @@
                 <span style="font-weight: bold">CABANG DINAS PENDIDKAN WILAYAH II</span><br>
                 <span style="font-weight: bold">SEKOLAH MENENGAH KEJURUAN (SMK) NEGERI 4 KOTA BOGOR</span><br>
             </h5>
-            <h6 style="text-align: center">Jl. Raya Tajur Kp. Buntar Rt.02/08 Kel. Muarasari Kec. Bogor Selatan Telp.
+            <h6 style="text-align: center">Jl. Raya Tajur Kp. Buntar Rt.02/08 <br> Kel.  Muarasari Kec. Bogor Selatan Telp.
                 02517547381<br>
                 E-mail : smkn4@smkn4bogor.sch.id Web: www.smkn4bogor.sch.id
             </h6>
@@ -125,13 +125,12 @@
     </header>
     <center>
         <div class="text-center" class="mb-2">
-            <h3>FORMULIR DAFTAR ULANG TAHAP 2<br>
+            <h3>FORMULIR DAFTAR ULANG TAHAP 1<br>
                 PENERIMAAN PESERTA DIDIK BARU(PPDB) <br>
                 SMK NEGERI 4 KOTA BOGOR<br>
-                Tahun Pelajaran 2021/2022<br>
+                Tahun Pelajaran 2022/2023<br>
             </h3>
             <h4 class="text-center">
-                Raport Umum
                 {{-- <small>
                     Jalur ABK, KETM, Kondisi Tertentu, Perpindahan Tugas Orang Tua/Guru, Prestasi Kejuaraan,
                     Prestasi Raport Unggulan dan Prioritas Jarak.
@@ -144,17 +143,32 @@
             border: black solid 1px;
         }
     </style>
+
+    {{-- @dump($users) --}}
+    <br>
     <div class="text-right">
-        <div class="card" style="width: 410px;">
-            Nama Lengkap : {{ $users->DU_FULLNANE }}
-        </div>
-        <div class="card" style="width: 410px;">
-            NISN : {{ $users->NISN }}
-        </div>
-        <div class="card" style="width: 410px;">
-            Jalur Pendaftaran : edit
-            {{-- {{$users->JARDAF}} --}}
-        </div>
+        <table style="text-align: left;  border: black solid;">
+            <tr>
+                <th>NAMA LENGKAP</th>
+                <th>: {{ $users->DU_FULLNANE }}</th>
+            </tr>
+            <tr>
+                <th>NISN</th>
+                <th>: {{ $users->NISN }}</th>
+            </tr>
+            {{-- <tr>
+                <th>ASAL SEKOLAH</th>
+                <th>: {{ $users->ASAL-SEKOLAH }}</th>
+            </tr> --}}
+            <tr>
+                <th>JALUR PENDAFTARAN</th>
+                <th>: {{ $users->JDP }}</th>
+            </tr>
+            <tr>
+                <th>PROGRAM KEAHLIAN</th>
+                <th>: {{ $users->Kejuruan }}</th>
+            </tr>
+        </table>        
     </div>
     <div class="row">
         <div class="col-sm-6">
@@ -427,11 +441,11 @@
                 <tr>
                     <td>TRANSPORTASI YANG DIGUNAKAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DD_TRANSPORTASI))
-                                @if ($users->DD_TRANSPO == null)
+                            @if (!empty($users->DD_TRANPORTASI))
+                                @if ($users->DD_TRANPORTASI == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DD_TRANSPO }}
+                                    {{ $users->DD_TRANPORTASI }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -540,11 +554,11 @@
                 <tr>
                     <td>TAHUN LAHIR</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_TAHUN_LAHIR_AYAH))
-                                @if ($users->DO_TAHUN_LAHIR_AYAH == null)
+                            @if (!empty($users->DO_TAHUN_KELAHIRAN_AYAH_KANDUNG))
+                                @if ($users->DO_TAHUN_KELAHIRAN_AYAH_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_TAHUN_LAHIR_AYAH }}
+                                    {{ $users->DO_TAHUN_KELAHIRAN_AYAH_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -555,11 +569,11 @@
                 <tr>
                     <td>PENDIDIKAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PENDIDIKAN_AYAH))
-                                @if ($users->DO_PENDIDIKAN_AYAH == null)
+                            @if (!empty($users->DO_PENDIDIKAN_AYAH_KANDUNG))
+                                @if ($users->DO_PENDIDIKAN_AYAH_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PENDIDIKAN_AYAH }}
+                                    {{ $users->DO_PENDIDIKAN_AYAH_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -570,11 +584,11 @@
                 <tr>
                     <td>PEKERJAAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PEKERJAAN_AYAH))
-                                @if ($users->DO_PEKERJAAN_AYAH == null)
+                            @if (!empty($users->DO_PEKERJAAN_AYAH_KANDUNG))
+                                @if ($users->DO_PEKERJAAN_AYAH_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PEKERJAAN_AYAH }}
+                                    {{ $users->DO_PEKERJAAN_AYAH_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -585,11 +599,11 @@
                 <tr>
                     <td>PENGHASILAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PENGHASILAN_AYAH))
-                                @if ($users->DO_PENGHASILAN_AYAH == null)
+                            @if (!empty($users->DO_PENGHASILAN_AYAH_KANDUNG))
+                                @if ($users->DO_PENGHASILAN_AYAH_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PENGHASILAN_AYAH }}
+                                    {{ $users->DO_PENGHASILAN_AYAH_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -600,11 +614,11 @@
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_AYAH))
-                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_AYAH == null)
+                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_AYAH_KANDUNG))
+                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_AYAH_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_AYAH }}
+                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_AYAH_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -615,11 +629,11 @@
                 <tr>
                     <td>NO. TELP/HP</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_NOMOR_TELEPON_AYAH))
-                                @if ($users->DO_NOMOR_TELEPON_AYAH == null)
+                            @if (!empty($users->DO_KONTAK_AYAH_KANDUNG))
+                                @if ($users->DO_KONTAK_AYAH_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_NOMOR_TELEPON_AYAH }}
+                                    {{ $users->DO_KONTAK_AYAH_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -660,11 +674,11 @@
                 <tr>
                     <td>TAHUN LAHIR</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_TAHUN_LAHIR_IBU))
-                                @if ($users->DO_TAHUN_LAHIR_IBU == null)
+                            @if (!empty($users->DO_TAHUN_KELAHIRAN_IBU_KANDUNG))
+                                @if ($users->DO_TAHUN_KELAHIRAN_IBU_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_TAHUN_LAHIR_IBU }}
+                                    {{ $users->DO_TAHUN_KELAHIRAN_IBU_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -675,11 +689,11 @@
                 <tr>
                     <td>PENDIDIKAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PENDIDIKAN_IBU))
-                                @if ($users->DO_PENDIDIKAN_IBU == null)
+                            @if (!empty($users->DO_PENDIDIKAN_IBU_KANDUNG))
+                                @if ($users->DO_PENDIDIKAN_IBU_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PENDIDIKAN_IBU }}
+                                    {{ $users->DO_PENDIDIKAN_IBU_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -690,11 +704,11 @@
                 <tr>
                     <td>PEKERJAAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PEKERJAAN_IBU))
-                                @if ($users->DO_PEKERJAAN_IBU == null)
+                            @if (!empty($users->DO_PEKERJAAN_IBU_KANDUNG))
+                                @if ($users->DO_PEKERJAAN_IBU_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PEKERJAAN_IBU }}
+                                    {{ $users->DO_PEKERJAAN_IBU_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -705,11 +719,11 @@
                 <tr>
                     <td>PENGHASILAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PENGHASILAN_IBU))
-                                @if ($users->DO_PENGHASILAN_IBU == null)
+                            @if (!empty($users->DO_PENGHASILAN_IBU_KANDUNG))
+                                @if ($users->DO_PENGHASILAN_IBU_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PENGHASILAN_IBU }}
+                                    {{ $users->DO_PENGHASILAN_IBU_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -720,11 +734,11 @@
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_IBU))
-                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_IBU == null)
+                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_IBU_KANDUNG))
+                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_IBU_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_IBU }}
+                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_IBU_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -735,11 +749,11 @@
                 <tr>
                     <td>NO. TELP/HP</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_NOMOR_TELEPON_IBU))
-                                @if ($users->DO_NOMOR_TELEPON_IBU == null)
+                            @if (!empty($users->DO_KONTAK_IBU_KANDUNG))
+                                @if ($users->DO_KONTAK_IBU_KANDUNG == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_NOMOR_TELEPON_IBU }}
+                                    {{ $users->DO_KONTAK_IBU_KANDUNG }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -750,11 +764,11 @@
                 <tr>
                     <td>NAMA WALI</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_NAMA_WALI))
-                                @if ($users->DO_NAMA_WALI == null)
+                            @if (!empty($users->DO_NAMA_WALI_SISWA))
+                                @if ($users->DO_NAMA_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_NAMA_WALI }}
+                                    {{ $users->DO_NAMA_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -765,11 +779,11 @@
                 <tr>
                     <td>NIK WALI</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_NIK_WALI))
-                                @if ($users->DO_NIK_WALI == null)
+                            @if (!empty($users->DO_NIK_WALI_SISWA))
+                                @if ($users->DO_NIK_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_NIK_WALI }}
+                                    {{ $users->DO_NIK_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -780,11 +794,11 @@
                 <tr>
                     <td>TAHUN LAHIR</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_TAHUN_LAHIR_WALI))
-                                @if ($users->DO_TAHUN_LAHIR_WALI == null)
+                            @if (!empty($users->DO_TAHUN_KELAHIRAN_WALI_SISWA))
+                                @if ($users->DO_TAHUN_KELAHIRAN_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_TAHUN_LAHIR_WALI }}
+                                    {{ $users->DO_TAHUN_KELAHIRAN_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -795,11 +809,11 @@
                 <tr>
                     <td>PENDIDIKAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PENDIDIKAN_WALI))
-                                @if ($users->DO_PENDIDIKAN_WALI == null)
+                            @if (!empty($users->DO_PENDIDIKAN_WALI_SISWA))
+                                @if ($users->DO_PENDIDIKAN_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PENDIDIKAN_WALI }}
+                                    {{ $users->DO_PENDIDIKAN_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -810,11 +824,11 @@
                 <tr>
                     <td>PEKERJAAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PEKERJAAN_WALI))
-                                @if ($users->DO_PEKERJAAN_WALI == null)
+                            @if (!empty($users->DO_PEKERJAAN_WALI_SISWA))
+                                @if ($users->DO_PEKERJAAN_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PEKERJAAN_WALI }}
+                                    {{ $users->DO_PEKERJAAN_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -825,11 +839,11 @@
                 <tr>
                     <td>PENGHASILAN</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_PENGHASILAN_WALI))
-                                @if ($users->DO_PENGHASILAN_WALI == null)
+                            @if (!empty($users->DO_PENGHASILAN_WALI_SISWA))
+                                @if ($users->DO_PENGHASILAN_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_PENGHASILAN_WALI }}
+                                    {{ $users->DO_PENGHASILAN_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -840,11 +854,11 @@
                 <tr>
                     <td>BERKEBUTUHAN KHUSUS</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_WALI))
-                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_WALI == null)
+                            @if (!empty($users->DO_BERKEBUTUHAN_KHUSUS_WALI_SISWA))
+                                @if ($users->DO_BERKEBUTUHAN_KHUSUS_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_WALI }}
+                                    {{ $users->DO_BERKEBUTUHAN_KHUSUS_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -855,11 +869,11 @@
                 <tr>
                     <td>NO. TELP/HP</td>
                     <td>: <strong>
-                            @if (!empty($users->DO_NOMOR_TELEPON_WALI))
-                                @if ($users->DO_NOMOR_TELEPON_WALI == null)
+                            @if (!empty($users->DO_KONTAK_WALI_SISWA))
+                                @if ($users->DO_KONTAK_WALI_SISWA == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->DO_NOMOR_TELEPON_WALI }}
+                                    {{ $users->DO_KONTAK_WALI_SISWA }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -960,7 +974,7 @@
                                     {{ $users->JSK }}
                                 @endif
                             @else
-                                {{ '~COUNT' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                     </td>
@@ -1014,7 +1028,7 @@
                                     {{ $users->DP_PRESTASI_TITTLE }}
                                 @endif
                             @else
-                                {{ '~COUNT' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                     </td>
@@ -1085,7 +1099,7 @@
                                     {{ $users->Keterangan }}
                                 @endif
                             @else
-                                {{ '~Count' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                         
@@ -1161,7 +1175,7 @@
                                     {{ $users->KOTA }}
                                 @endif
                             @else
-                                {{ '~COUNT' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                      </td>
@@ -1176,7 +1190,7 @@
                                     {{ $users->GOLDARAH }}
                                 @endif
                             @else
-                                {{ '~COUNT' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                     </td>
@@ -1266,7 +1280,7 @@
                                     {{ $users->CITA }}
                                 @endif
                             @else
-                                {{ '~COUNT' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                     </td>
@@ -1281,7 +1295,7 @@
                                     {{ $users->nous }}
                                 @endif
                             @else
-                                {{ '~COUNT' }}
+                                {{ '~' }}
                             @endif
                         </strong>
                     </td>
@@ -1301,7 +1315,7 @@
                         </strong>
                     </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td>KELAS</td>
                     <td>: <strong>
                             @if (!empty($users->CC_KELAS))
@@ -1315,15 +1329,15 @@
                             @endif
                         </strong>
                     </td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td>Ekstrakurikuler Yang Di Minati</td>
                     <td>: <strong>
-                            @if (!empty($users->ekskul))
-                                @if ($users->ekskul == null)
+                            @if (!empty($users->CC_EKSTRAKURIKULER))
+                                @if ($users->CC_EKSTRAKURIKULER == null)
                                     {{ '~' }}
                                 @else
-                                    {{ $users->ekskul }}
+                                    {{ $users->CC_EKSTRAKURIKULER }}
                                 @endif
                             @else
                                 {{ '~' }}
@@ -1331,7 +1345,7 @@
                         </strong>
                     </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td>NO INDUK SEKOLAH(NIS)</td>
                     <td>: <strong>
                             @if (!empty($users->NIS))
@@ -1345,7 +1359,7 @@
                             @endif
                         </strong>
                     </td>
-                </tr>
+                </tr> --}}
 
 
 
@@ -1358,7 +1372,7 @@
             <table>
                 <tr>
                     <td>Mengetahui/Menyetujui</td>
-                    <td>Bogor, ......................................................... 2021</td>
+                    <td>Bogor,  ............ JUNI 2022</td>
 
 
 
@@ -1383,7 +1397,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>materai 10,000</td>
+                    <td></td>
                     <td></td>
                 </tr>
                 <tr>

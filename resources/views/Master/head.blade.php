@@ -15,6 +15,7 @@
     <link rel="apple-touch-icon" sizes="{{ url('/mobilekit1/') }}/180x180" href="assets/img/icon/192x192.png">
     <link rel="stylesheet" href="{{ url('/mobilekit1/') }}/assets/css/style.css">
     <link rel="manifest" href="{{ url('/mobilekit1/') }}/__manifest.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -26,7 +27,9 @@
 	                <ion-icon name="chevron-back-outline"></ion-icon>
 	            </a>
 	        </div>
-	        <div class="pageTitle">{!! setting('site.title') !!}</div>
+	        <div class="pageTitle">
+                <img src="https://ppdb.smkn4bogor.sch.id/storage/posts/June2022/ttkkMzvAMdVfJEOUo3BF.png" style="width: 50px;">
+            </div>
 	        <div class="right"></div>
 	    </div>
     <!-- * App Header -->
@@ -34,14 +37,14 @@
     <!-- App Capsule -->
     <div id="appCapsule">
         <div class="section full mt-2">
-            <div class="section-title">
-                @yield('page_title', setting('site.title'))
+            <div class="section-title text-center">
+                {{-- {{setting('site.title')}} --}}
             </div>
             <div class="wide-block pt-2 pb-2">
                 @yield('content')      
                 <hr>
                 <div class="card">      
-                    @yield('c2')
+                    {{-- @yield('c2') --}}
                 </div>
             </div>
         </div>

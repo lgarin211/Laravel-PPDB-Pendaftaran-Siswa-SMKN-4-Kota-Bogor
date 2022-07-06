@@ -5,17 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Imports\UsersImport;
+use App\Exports\UsersEComplatedata;
+use App\Exports\UsersNotEComplatedata;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 class newUs extends Controller
 {
+    public function home(Type $var = null)
+    {
+        if (empty(Auth::user()->id)) {
+                return view('scema/home');
+        }else{
+                return redirect('/dashboard');
+        }
+    }
+
+    public function kaj(Type $var = null)
+    {
+        if (empty($_GET['id'])) {
+                return back();
+        }else{
+                return view('scemakadmin/proses');
+        }
+    }
+
     public function owq(Request $request)
     {   
-
-        // dd(Auth::user(),$request);
-
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -33,6 +50,21 @@ class newUs extends Controller
 
     }
 
+    public function c_view()
+    {   
+        $data['users']=DB::table('inwepon')->get();
+        // dd($data);
+        return view('tdf/list',$data);
+    }
+    public function c_ex2()
+    {   
+        return Excel::download(new UsersNotEComplatedata, 'Data Belum Lengkap Per '.date('Y-m-d-hisHHISS').'.xlsx');
+    }
+    public function c_ex()
+    {
+        return Excel::download(new UsersEComplatedata, 'Data Lengkap Per '.date('Y-m-d-hisHHISS').'.xlsx');
+    }
+
     public function basl()
     {
         if (!empty($_GET['id'])) {
@@ -43,12 +75,11 @@ class newUs extends Controller
             ->join('DATA_BEASISWA', 'users.id', '=', 'DATA_BEASISWA.AUTH_ID')
             ->join('DATA_ALAMAT', 'users.id', '=', 'DATA_ALAMAT.AUTH_ID')
             ->join('CITA_CITA', 'users.id', '=', 'CITA_CITA.AUTH_ID')
-            ->join('DATA_COVID', 'users.id', '=', 'DATA_COVID.AUTH_ID')
+            // ->join('DATA_COVID', 'users.id', '=', 'DATA_COVID.AUTH_ID')
             ->join('DATA_MEDIS', 'users.id', '=', 'DATA_MEDIS.AUTH_ID')
             ->join('DATA_PRESTASI', 'users.id', '=', 'DATA_PRESTASI.AUTH_ID')
             ->join('DATA_SENSUS_SEKOLAH_ASAL', 'users.id', '=', 'DATA_SENSUS_SEKOLAH_ASAL.AUTH_ID')
             ->join('DATA_SENSUS_UMUM', 'users.id', '=', 'DATA_SENSUS_UMUM.AUTH_ID')
-            ->select('*')
             ->where('users.id',  $_GET['id'])
             ->first();
 
@@ -57,7 +88,7 @@ class newUs extends Controller
             if (!empty($users)) {
                 return view('PDFp',$data);
             } else {
-                return redirect()->route('/');
+                return redirect('/');
             }
             die;
         }
@@ -67,6 +98,9 @@ class newUs extends Controller
     public function import(Request $request)
     {
         // dd($request->ezl,request()->file('ezl'));
+        if (Auth::user()->role_id!=1) {
+            return redirect('/admin');
+        }
         if (!empty($_POST)) {
             Excel::import(new UsersImport, request()->file('ezl'));
             dd('stop');

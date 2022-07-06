@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\newUs;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,20 +25,38 @@ use Illuminate\Support\Facades\Auth;
 //     return view('scema/proses');
 // });
 
-Route::get('/', function () {
-    return view('scema/home');
+// if (empty(Auth::user()->id)) {
+//     Route::get('/', function () {
+//         return view('scema/home');
+//     });
+// }else{
+//     Route::get('/', function () {
+//         return redirect('/dashboard');
+//     });
+// }
+
+
+Route::any('/',[newUs::class,'home']);
+
+Route::get('/art', function () {
+    return view('artikel');
 });
 
-Route::get('/home', function () {
-    return view('scema/home');
-});
-
-Route::any('/import',[newUs::class,'import']);
 Route::any('/pdf',[newUs::class,'basl']);
 
+
+Route::any('/vin',[newUs::class,'basl']);
+
 Route::get('/home', function () {
     return view('scema/home');
 });
+
+Route::get('/kill', function () {
+    $users = DB::table('TINUS')->get();
+    dd($users);
+});
+
+
 
 Route::get('/FAQ', function () {
     return view('scema/FAQ');
@@ -82,5 +102,9 @@ Route::middleware([
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-
+    Route::any('/import',[newUs::class,'import']);
+    Route::any('/fasw',[newUs::class,'kaj']);
+    Route::any('/c_ex',[newUs::class,'c_ex']);
+    Route::any('/c_ex2',[newUs::class,'c_ex2']);
+    Route::any('/c_view',[newUs::class,'c_view']);
 });

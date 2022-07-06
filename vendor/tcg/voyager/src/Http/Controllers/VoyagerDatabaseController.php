@@ -123,7 +123,7 @@ class VoyagerDatabaseController extends Controller
     public function edit($table)
     {
         $this->authorize('browse_database');
-
+        // dd('ada');
         if (!SchemaManager::tableExists($table)) {
             return redirect()
                 ->route('voyager.database.index')
@@ -131,6 +131,7 @@ class VoyagerDatabaseController extends Controller
         }
 
         $db = $this->prepareDbManager('update', $table);
+        // return redirect('/dasboard');
         return Voyager::view('voyager::tools.database.edit-add', compact('db'));
     }
 

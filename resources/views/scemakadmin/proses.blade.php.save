@@ -212,7 +212,7 @@
                                                                 $key2 = str_replace('_', ' ', $key2);
                                                                 $key2 = str_replace('TINGG BERSAMA', 'TINGGAL BERSAMA', $key2);
                                                                 $key2 = str_replace('JRS', 'JARAK RUMAH KE SEKOLAH', $key2);
-                                                                $key2 = str_replace('JRS KM', 'JARAK RUMAH KE SEKOLAH DALAM KM', $key2);
+                                                                $key2 = str_replace('JRS KM', 'JARAK RUMAH KE SEKOLAH DALAM KM', $key2);                                                                
                                                             @endphp
                                                             {{ $key2 }}
                                                             </td>
@@ -356,7 +356,7 @@
                         @endempty
                     @endforeach
                 </div>
-                <!-- <a href="#" class="btn btn-primary col-12">Print data</a> -->
+                <a href="#" class="btn btn-primary col-12">Print data</a>
             </div>
         </div>
         <hr>
